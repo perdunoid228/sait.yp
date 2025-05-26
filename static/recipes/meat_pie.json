@@ -1,0 +1,9 @@
+{
+    "id": 15,
+    "title": "Пирог с мясом и грибами",
+    "image": "static/images/meat_pie.jpg",
+    "ingredients": ["Фарш", "Грибы", "Лук", "Тесто", "Специи"],
+    "instructions": "Запекайте фарш с грибами и луком в тесте.",
+    "time": 90,
+    "servings": 6
+}

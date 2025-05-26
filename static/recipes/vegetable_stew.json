@@ -1,0 +1,9 @@
+{
+    "id": 10,
+    "title": "Жаркое из овощей",
+    "image": "static/images/vegetable_stew.jpg",
+    "ingredients": ["Картофель", "Морковь", "Лук", "Капуста", "Специи"],
+    "instructions": "Тушите овощи с добавлением специй до готовности.",
+    "time": 45,
+    "servings": 6
+}

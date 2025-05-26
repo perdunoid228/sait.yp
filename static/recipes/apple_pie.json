@@ -1,0 +1,9 @@
+{
+    "id": 9,
+    "title": "Яблочный пирог",
+    "image": "static/images/apple_pie.png",
+    "ingredients": ["Яблоки", "Тесто", "Сахар", "Корица"],
+    "instructions": "Запекайте яблоки в тесте с сахаром и корицей.",
+    "time": 60,
+    "servings": 8
+}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="about-page">
+    <div class="about-container">
+        <h1>О нашем проекте</h1>
+
+        <div class="mission-section">
+            <div class="mission-content">
+                <h2>Наша миссия</h2>
+                <p>Мы создали "Нашу Кухню" с любовью к кулинарии и желанием поделиться лучшими рецептами со всеми, кто ценит вкусную и качественную домашнюю еду.</p>
+                <p>Наш проект объединяет традиционные рецепты и современные тенденции кулинарии.</p>
+            </div>
+
+            <div class="mission-contacts">
+                <h3>Наши контакты</h3>
+                <p>+7 (900) 551-58-25</p>
+                <p>info@nasha-kuhnya.ru</p>
+                <p>Пн-Пт: 9:00-21:00</p>
+                <p>Вологда, ул. Первомайская, 42</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

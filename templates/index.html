@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Лучшие кулинарные рецепты с пошаговыми инструкциями">
+
+    <title>Гастрономия | Кулинарные рецепты для каждого</title>
+    <link rel="icon" href="static/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+<header class="header">
+    <div class="header-container">
+        <a href="/" class="logo">
+            <span class="logo-icon">🍳</span>
+            <span>Гастрономия</span>
+        </a>
+
+        <nav class="nav">
+            <div class="nav-links">
+                <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Главная</a>
+                <a href="/recipes" class="nav-link {% if request.path == '/recipes' %}active{% endif %}">Рецепты</a>
+                <a href="/about" class="nav-link {% if request.path == '/about' %}active{% endif %}">О нас</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="main">
+    <section class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    Откройте мир вкусов <br>
+                    <span class="highlight">с нашими рецептами</span>
+                </h1>
+                <p class="hero__text">
+                    Более 40 проверенных рецептов с небольшими инструкциями и фото
+                </p>
+                <div class="hero__tags">
+                    <span>Популярное:</span>
+                    <li><a href="recipes" class="nav-link">Посмотрите все доступные нами рецепты</a></li>
+                    <li><a href="about" class="nav-link">Почитайте о нас</a></li>
+                    <li><a href="404" class="nav-link">Зацените страницу ошибки</a></li>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="collections">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-title__accent">Кулинарные</span> подборки
+            </h2>
+            <div class="collections__grid">
+                <article class="collection-card">
+                    <div class="collection-card__image">
+                        <img src="static/images/quick_recipes.jpg" alt="Быстрые рецепты">
+                        <span class="collection-card__count">5 блюд</span>
+                    </div>
+                    <div class="collection-card__content">
+                        <h3 class="collection-card__title">На скорую руку</h3>
+                        <p class="collection-card__desc">
+                            Рецепты, которые можно приготовить менее чем за 30 минут
+                        </p>
+                        <a href="index" class="collection-card__link" data-category="Напитки">Подробнее</a>
+                    </div>
+                </article>
+
+                <article class="collection-card">
+                    <div class="collection-card__image">
+                        <img src="static/images/vegetarian.jpg" alt="Вегетарианские блюда">
+                        <span class="collection-card__count">5 блюд</span>
+                    </div>
+                    <div class="collection-card__content">
+                        <h3 class="collection-card__title">Вегетарианские блюда</h3>
+                        <p class="collection-card__desc">
+                            Рецепты без мяса, подходящие для вегетарианцев
+                        </p>
+                        <a href="index" class="collection-card__link" data-category="Вегетарианские">Подробнее</a>
+                    </div>
+                </article>
+
+                <article class="collection-card">
+                    <div class="collection-card__image">
+                        <img src="static/images/desserts.jpg" alt="Десерты">
+                        <span class="collection-card__count">5 блюд</span>
+                    </div>
+                    <div class="collection-card__content">
+                        <h3 class="collection-card__title">Десерты</h3>
+                        <p class="collection-card__desc">
+                            Сладкие блюда и выпечка, чтобы набрать хорошую массу
+                        </p>
+                        <a href="index" class="collection-card__link" data-category="Десерты">Подробнее</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="latest-recipes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-title__accent">Типа</span> мемчик
+                </h2>
+            </div>
+            <div>
+                <img
+                        src="static/images/reklama.gif"
+                        alt="РЕКЛАМА"
+                        width="285"
+                        height="550"
+                        title="Подсказка при наведении"
+                        style="border: 1px solid #ccc;"
+                >
+            </div>
+            <div class="recipes-grid">
+            </div>
+        </div>
+    </section>
+    <section class="recipe-of-day">
+        <div class="container">
+            <h2>Рецепт года</h2>
+            <div class="featured-recipe">
+                <img src="static/images/khinkali.jpg" alt="Рецепт дня"
+                     style="width:400px; height: 200px">
+                <div class="content">
+                    <h3>Хинкали</h3>
+                    <div class="meta">
+                        <span><i class="fas fa-clock"></i> 60 мин</span>
+                        <span><i class="fas fa-utensils"></i> 6 порций</span>
+                        <span><i class="fas fa-star"></i> 5</span>
+                    </div>
+                    <div class="menu-item2">
+                        <button class="open-recipe" data-recipe="khinkali">
+                            Смотреть рецепт
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seasonal">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="section-title__accent">Сезонные</span> предложения
+            </h2>
+            <div class="collections__grid2">
+                <div class="card">
+                    <img src="static/images/arbuz-salat.png" alt="Летние рецепты"
+                         style="width:235px; height: 185px">
+                    <h3>Летнее меню</h3>
+                    <div class="menu-container2">
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="summer_salad">
+                                Летний салат с арбузом и фетой
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="gaspacho">
+                                Холодный суп гаспачо
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="grilled_vegetables">
+                                Гриль из овощей
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="fruit_sorbet">
+                                Фруктовый сорбет
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="summer_rolls">
+                                Летние роллы с лососем и авокадо
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="static/images/baked_pumpkin.jpg" alt="Осенние рецепты"
+                         style="width:235px; height: 185px">
+                    <h3>Осеннее меню</h3>
+                    <div class="menu-container2">
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="pumpkin_soup">
+                                Тыквенный суп
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="baked_pumpkin">
+                                Запеченная тыква с медом и орехами
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="mushroom_risotto">
+                                Грибной ризотто
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="apple_pie">
+                                Яблочный пирог
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="vegetable_stew">
+                                Жаркое из овощей
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="static/images/glintwein.png" alt="Зимние рецепты"
+                         style="width:235px; height: 185px">
+                    <h3>Зимнее меню</h3>
+                    <div class="menu-container2">
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="mulled_wine">
+                                Глинтвейн
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="roast_turkey">
+                                Запеченная индейка с овощами
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="broccoli_soup">
+                                Суп-пюре из брокколи
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="chocolate_fondue">
+                                Шоколадный фондю
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="meat_pie">
+                                Пирог с мясом и грибами
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="static/images/zapech-losos.png" alt="Весенние рецепты"
+                         style="width:235px; height: 185px">
+                    <h3>Весеннее меню</h3>
+                    <div class="menu-container2">
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="radish_salad">
+                                Салат с редисом и зеленью
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="asparagus_soup">
+                                Спаржевый крем-суп
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="omelette">
+                                Омлет с зеленым луком и помидорами
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="strawberry_salad">
+                                Салат с клубникой и шпинатом
+                            </button>
+                        </div>
+                        <div class="menu-item">
+                            <button class="open-recipe" data-recipe="baked_salmon">
+                                Запеченный лосось с лимоном и укропом
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div id="recipe-modal" class="modal-overlay">
+    <div class="modal-container">
+        <span class="modal-close">&times;</span>
+        <div id="modal-recipe-content" class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h5>Категории</h5>
+                <ul class="footer-nav-links">
+                    <li><a href="recipes" class="footer-nav-link">Десерты</a></li>
+                    <li><a href="recipes" class="footer-nav-link">Супы</a></li>
+                    <li><a href="recipes" class="footer-nav-link">Салаты</a></li>
+                    <li><a href="recipes" class="footer-nav-link">Основные блюда</a></li>
+                    <li><a href="recipes" class="footer-nav-link">Выпечка</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h5>Разделы</h5>
+                <ul class="footer-nav-links">
+                    <li><a href="about" class="footer-nav-link">О проекте</a></li>
+                    <li><a href="about" class="footer-nav-link">Контакты</a></li>
+                    <li><a href="404" class="footer-nav-link">Партнеры</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h5>Рецепты</h5>
+                <ul class="footer-nav-links">
+                    <li><a href="404" class="footer-nav-link">Новые</a></li>
+                    <li><a href="404" class="footer-nav-link">Популярные</a></li>
+                    <li><a href="404" class="footer-nav-link">Сезонные</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h5>Соцсети</h5>
+                <div class="social-icons">
+                    <a href="404"><i class="fab fa-vk"></i></a>
+                    <a href="404"><i class="fab fa-telegram"></i></a>
+                    <a href="404"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h5>Мы на карте</h5>
+                <div style="position:relative;overflow:hidden;"><a
+                        href="https://yandex.ru/maps/21/vologda/?utm_medium=mapframe&utm_source=maps"
+                        style="color:#eee;font-size:12px;position:absolute;top:0px;">Вологда</a><a
+                        href="https://yandex.ru/maps/21/vologda/house/pervomayskaya_ulitsa_42/Z0AYfg5iTkEDQFtjfX5xeXhhbQ==/?ll=39.894638%2C59.208268&utm_medium=mapframe&utm_source=maps&z=18"
+                        style="color:#eee;font-size:12px;position:absolute;top:14px;">Первомайская улица, 42 —
+                    Яндекс Карты</a>
+                    <iframe src="https://yandex.ru/map-widget/v1/?ll=39.894638%2C59.208268&mode=whatshere&whatshere%5Bpoint%5D=39.892676%2C59.208533&whatshere%5Bzoom%5D=17&z=18"
+                            width="400" height="400" frameborder="1" allowfullscreen="true"
+                            style="position:relative;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 2025 Наша Кухня. Ничего не защищено.
+        </div>
+    </div>
+</footer>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

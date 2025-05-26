@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гастрономия | Кулинарные рецепты для каждого</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="static/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block styles %}{% endblock %}
+</head>
+<body>
+<div class="app-container">
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">🍳</span>
+                <span>Гастрономия</span>
+            </a>
+
+            <nav class="nav">
+                <div class="nav-links">
+                    <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Главная</a>
+                    <a href="/recipes" class="nav-link {% if request.path == '/recipes' %}active{% endif %}">Рецепты</a>
+                    <a href="/about" class="nav-link {% if request.path == '/about' %}active{% endif %}">О нас</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="app-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h5>Категории</h5>
+                    <ul class="footer-nav-links">
+                        <li><a href="recipes" class="footer-nav-link">Десерты</a></li>
+                        <li><a href="recipes" class="footer-nav-link">Супы</a></li>
+                        <li><a href="recipes" class="footer-nav-link">Салаты</a></li>
+                        <li><a href="recipes" class="footer-nav-link">Основные блюда</a></li>
+                        <li><a href="recipes" class="footer-nav-link">Выпечка</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Разделы</h5>
+                    <ul class="footer-nav-links">
+                        <li><a href="about" class="footer-nav-link">О проекте</a></li>
+                        <li><a href="about" class="footer-nav-link">Контакты</a></li>
+                        <li><a href="404" class="footer-nav-link">Партнеры</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Рецепты</h5>
+                    <ul class="footer-nav-links">
+                        <li><a href="404" class="footer-nav-link">Новые</a></li>
+                        <li><a href="404" class="footer-nav-link">Популярные</a></li>
+                        <li><a href="404" class="footer-nav-link">Сезонные</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Соцсети</h5>
+                    <div class="social-icons">
+                        <a href="404"><i class="fab fa-vk"></i></a>
+                        <a href="404"><i class="fab fa-telegram"></i></a>
+                        <a href="404"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Мы на карте</h5>
+                    <div style="position:relative;overflow:hidden;"><a
+                            href="https://yandex.ru/maps/21/vologda/?utm_medium=mapframe&utm_source=maps"
+                            style="color:#eee;font-size:12px;position:absolute;top:0px;">Вологда</a><a
+                            href="https://yandex.ru/maps/21/vologda/house/pervomayskaya_ulitsa_42/Z0AYfg5iTkEDQFtjfX5xeXhhbQ==/?ll=39.894638%2C59.208268&utm_medium=mapframe&utm_source=maps&z=18"
+                            style="color:#eee;font-size:12px;position:absolute;top:14px;">Первомайская улица, 42 —
+                        Яндекс Карты</a>
+                        <iframe src="https://yandex.ru/map-widget/v1/?ll=39.894638%2C59.208268&mode=whatshere&whatshere%5Bpoint%5D=39.892676%2C59.208533&whatshere%5Bzoom%5D=17&z=18"
+                                width="400" height="400" frameborder="1" allowfullscreen="true"
+                                style="position:relative;"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                © 2025 Наша Кухня. Ничего не защищено.
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "id": 7,
+    "title": "Запеченная тыква с медом и орехами",
+    "image": "static/images/baked_pumpkin.jpg",
+    "ingredients": ["Тыква", "Мед", "Грецкие орехи", "Корица"],
+    "instructions": "Запекайте тыкву с медом и орехами до мягкости.",
+    "time": 35,
+    "servings": 4
+}

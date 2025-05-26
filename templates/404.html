@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/errors.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="error-wrapper">
+    <div class="error-main">
+        <div class="error-emoji">🍳</div>
+        <h1>Страница не найдена</h1>
+        <p class="error-message">Кажется, мы не можем найти то, что вы ищете. Возможно, рецепт уже съели?</p>
+        <a href="{{ url_for('index') }}" class="home-button">На главную</a>
+    </div>
+</div>
+{% endblock %}

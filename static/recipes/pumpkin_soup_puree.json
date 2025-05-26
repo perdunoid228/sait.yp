@@ -1,0 +1,10 @@
+{
+    "id": 30,
+    "title": "Суп-пюре из тыквы",
+    "image": "static/images/pumpkin_soup_puree.jpg",
+    "ingredients": ["Тыква", "Лук", "Морковь", "Сливки", "Специи"],
+    "instructions": "Варить тыкву и овощи, пюрировать, добавить сливки.",
+    "time": 35,
+    "servings": 4,
+    "category": "На скорую руку"
+}

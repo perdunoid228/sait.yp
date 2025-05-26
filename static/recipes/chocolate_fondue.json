@@ -1,0 +1,9 @@
+{
+    "id": 14,
+    "title": "Шоколадный фондю",
+    "image": "static/images/chocolate_fondue.jpg",
+    "ingredients": ["Шоколад", "Сливки", "Фрукты для подачи"],
+    "instructions": "Растопите шоколад со сливками и подавайте с фруктами.",
+    "time": 15,
+    "servings": 6
+}

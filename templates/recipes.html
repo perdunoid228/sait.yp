@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modals.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <aside class="sidebar">
+        <div class="recipes-header">
+            <h2>Составляющие блюда</h2>
+        </div>
+        <div class="filter-group">
+            <h3 class="section-title">Категории</h3>
+            <div class="categories">
+                <button class="category-btn active" data-category="Все">Все</button>
+                <button class="category-btn" data-category="Вегетарианские">Вегетарианские</button>
+                <button class="category-btn" data-category="Салаты">Салаты</button>
+                <button class="category-btn" data-category="Мясо">Мясо</button>
+                <button class="category-btn" data-category="Выпечка">Выпечка</button>
+                <button class="category-btn" data-category="Напитки">Напитки</button>
+                <button class="category-btn" data-category="Десерты">Десерты</button>
+                <button class="category-btn" data-category="Закуски">Закуски</button>
+                <button class="category-btn" data-category="Супы">Супы</button>
+                <button class="category-btn" data-category="Гарниры">Гарниры</button>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <h3 class="section-title">Ингредиенты</h3>
+            <div class="ingredients">
+                <button class="ingredient-btn active" data-ingredients="Все">Все</button>
+                <button class="ingredient-btn" data-ingredients="Огурцы">Огурцы</button>
+                <button class="ingredient-btn" data-ingredients="Помидоры">Помидоры</button>
+                <button class="ingredient-btn" data-ingredients="Лук">Лук</button>
+                <button class="ingredient-btn" data-ingredients="Оливки">Оливки</button>
+                <button class="ingredient-btn" data-ingredients="Оливковое масло">Оливковое масло</button>
+                <button class="ingredient-btn" data-ingredients="Курица">Курица</button>
+                <button class="ingredient-btn" data-ingredients="Масло">Масло</button>
+                <button class="ingredient-btn" data-ingredients="Авокадо">Авокадо</button>
+                <button class="ingredient-btn" data-ingredients="Креветки">Креветки</button>
+                <button class="ingredient-btn" data-ingredients="Лимонный сок">Лимонный сок</button>
+                <button class="ingredient-btn" data-ingredients="Клубника">Клубника</button>
+                <button class="ingredient-btn" data-ingredients="Тыква">Тыква</button>
+                <button class="ingredient-btn" data-ingredients="Грибы">Грибы</button>
+                <button class="ingredient-btn" data-ingredients="Брокколи">Брокколи</button>
+                <button class="ingredient-btn" data-ingredients="Картофель">Картофель</button>
+                <button class="ingredient-btn" data-ingredients="Молоко">Молоко</button>
+                <button class="ingredient-btn" data-ingredients="Рис">Рис</button>
+                <button class="ingredient-btn" data-ingredients="Вино">Вино</button>
+                <button class="ingredient-btn" data-ingredients="Фрукты">Фрукты</button>
+                <button class="ingredient-btn" data-ingredients="Вода">Вода</button>
+                <button class="ingredient-btn" data-ingredients="Сахар">Сахар</button>
+                <button class="ingredient-btn" data-ingredients="Чай">Чай</button>
+                <button class="ingredient-btn" data-ingredients="Яйцо">Яйцо</button>
+                <button class="ingredient-btn" data-ingredients="Говядина">Говядина</button>
+                <button class="ingredient-btn" data-ingredients="Шоколад">Шоколад</button>
+                <button class="ingredient-btn" data-ingredients="Мука">Мука</button>
+                <button class="ingredient-btn" data-ingredients="Овощи">Овощи</button>
+                <button class="ingredient-btn" data-ingredients="Чеснок">Чеснок</button>
+                <button class="ingredient-btn" data-ingredients="Яблоки">Яблоки</button>
+            </div>
+        </div>
+    </aside>
+
+    <div class="recipes-section">
+        <div class="recipes-header">
+            <h2>Наши лучшие рецепты</h2>
+        </div>
+        <div class="recipes-container" id="recipes-container">
+        </div>
+    </div>
+</div>
+
+<div id="recipeModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div id="modalRecipeContent"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
